@@ -636,7 +636,7 @@ class Paypal
       def get_hash(string)
         hash = {}
         string.split('&').collect { |pair| pair.split('=') }.each { |a|
-          hash[a[0]] = URI.unescape(a[1])
+          hash[a[0]] = CGI.unescape(a[1])
         }
         return hash
       end
